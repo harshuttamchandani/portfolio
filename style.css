@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #add8e6; /* This sets a light blue background for the entire page */
+}
+header {
+    background-color: skyblue;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+#home {
+    background-color: #f0f0f0;
+}
+
+#home, #about, #projects, #contact, #mogad-story {
+    background-color: transparent; /* This makes the background of sections transparent, showing the body's background */
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.timeline {
+    list-style-type: none;
+    padding: 0;
+}
+
+.timeline li {
+    border-left: 3px solid skyblue;
+    margin: 10px 0;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.timeline li:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: skyblue;
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+    top: 10px;
+}
+
+#home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* This will place space between the text and the image */
+    padding: 40px 10%;
+}
+
+.home-content {
+    flex: 3; /* Takes up 3 parts of the available space */
+    text-align: left;
+}
+
+.home-img {
+    flex: 1; /* Takes up 1 part of the available space */
+    display: flex;
+    justify-content: flex-end; /* Aligns the image to the right */
+}
+
+.home-img img {
+    width: 200px; /* Size of the image */
+    height: 200px; /* Size of the image */
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image covers the area */
+}
+
+@media (max-width: 768px) {
+    #home {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content,
+    .home-img {
+        width: 100%;
+        flex: none; /* Resets the flex setting */
+    }
+
+    .home-img {
+        justify-content: center; /* Center the image on small screens */
+        margin-top: 20px;
+    }
+}
