@@ -1,29 +1,60 @@
+/* Base styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
-    background-color: #add8e6; /* This sets a light blue background for the entire page */
+    background-color: #add8e6; /* Light blue background */
+    color: #000; /* Text color */
 }
+
 header {
     background-color: skyblue;
     color: white;
     padding: 10px 0;
+    display: flex; /* Aligns logo and nav side by side */
+    justify-content: space-between; /* Spaces out logo and nav */
+    align-items: center; /* Centers items vertically */
 }
 
-nav ul {
-    list-style: none;
-    text-align: center;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensures the nav container takes up full header width */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
+.logo a {
     text-decoration: none;
+    color: #000;
+    font-size: 1.5em;
+}
+
+/* Hide the hamburger menu by default */
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 15px;
+    z-index: 3; /* Make sure the hamburger is above other content */
+}
+
+/* Desktop nav styles */
+nav#navbar ul {
+    list-style: none;
+    display: flex; /* Display nav items in a row */
+    margin: 0;
+    padding: 0;
+}
+
+nav#navbar ul li {
+    padding: 0 15px;
+}
+
+nav#navbar ul li a {
+    text-decoration: none;
+    color: #000; /* Black text for nav links */
     font-weight: bold;
 }
 
@@ -94,19 +125,32 @@ h1, h2 {
 }
 
 @media (max-width: 768px) {
-    #home {
-        flex-direction: column;
-        text-align: center;
+    /* Display the hamburger icon in mobile view */
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 3;
     }
 
-    .home-content,
-    .home-img {
-        width: 100%;
-        flex: none; /* Resets the flex setting */
+    /* Hide the navbar off-screen and slide in when open */
+    nav#navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        width: 250px;
+        height: 100%;
+        background-color: #fff;
+        overflow-x: hidden;
+        transition: transform 0.3s ease;
+        padding-top: 60px;
+        z-index: 2;
     }
 
-    .home-img {
-        justify-content: center; /* Center the image on small screens */
-        margin-top: 20px;
+    /* Adjust the position of the navbar when open */
+    nav#navbar.open {
+        transform: translateX(0);
     }
 }
